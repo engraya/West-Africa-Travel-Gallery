@@ -1,0 +1,90 @@
+{% extends 'baseapp/basePage.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>{{country.name}}</h2>
+            <hr>
+            <p>{{country.description}}</p>
+            <a class="cta-btn" href="{% url 'countries' %}">Back to Countries</a>
+
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery-single" class="gallery-single">
+      <div class="container">
+
+        <div class="position-relative h-100">
+          <div class="slides-1 portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide">
+                <img src="{% static 'assets/img/gallery/gallery-8.jpg' %}" alt="">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+        </div>
+        <hr>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2>About {{country.name}}</h2>
+              <p class="justify">{{country.about|safe|linebreaks}}</p>
+            </div>
+            <hr>
+            <div class="portfolio-description">
+                <h2>Climate</h2>
+                <p>{{country.climate}}</p>
+            </div>
+            <hr>
+            <div class="portfolio-description">
+              <h2>Culture</h2>
+              <p>{{country.culture}}</p>
+          </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Country Information</h3>
+              <hr>
+              <ul>
+                <li><strong>Name</strong> <span>{{country.name}}</span></li>
+                <li><strong>Capital</strong> <span>{{country.capital}}</span></li>
+                <li><strong>Dialing Code</strong> <span>{{country.dialingCode}}</span></li>
+                <li><strong>Currency</strong> <a href="#">{{country.currency}}</a></li>
+                <li><strong>Polulation</strong> <span>{{country.population}} Million</span></li>
+                <li><strong>Official Language</strong> <span>{{country.officialLanguage}}</span></li>
+                <hr>
+                <li><a href="{{country.wikiLink}}" class="btn-visit align-self-start" target="_blank">Read More</a></li>
+                <li><a href="#" class="btn-visit align-self-start">Gallery</a></li>
+                <li><a href="{% url 'map' country.id %}" class="btn-visit align-self-start">Map</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Gallery Single Section -->
+
+  </main><!-- End #main -->
+
+
+{% endblock content%}

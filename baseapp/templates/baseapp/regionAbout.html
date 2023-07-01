@@ -1,0 +1,101 @@
+{% extends 'baseapp/basePage.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<main id="main" data-aos="fade" data-aos-delay="1500">
+  {% for region in regions %}
+    <!-- ======= End Page Header ======= -->
+    <div class="page-header d-flex align-items-center">
+      <div class="container position-relative">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6 text-center">
+            <h2>{{region.name}}</h2>
+            <hr>
+            <p>{{region.description}}</p>
+            <a class="cta-btn" href="{% url 'countries' %}">Back to Countries</a>
+
+          </div>
+        </div>
+      </div>
+    </div><!-- End Page Header -->
+
+    <!-- ======= Gallery Single Section ======= -->
+    <section id="gallery-single" class="gallery-single">
+      <div class="container">
+
+        <div class="position-relative h-100">
+          <div class="slides-1 portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide">
+                <img src="{{region.mapImage.url}}" alt="">
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+
+        </div>
+        <hr>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-description">
+              <h2>About {{region.name}}</h2>
+              <p class="justify">{{region.about|safe|linebreaks}}</p>
+            </div>
+            <hr>
+            <div class="portfolio-description">
+                <h2>Climate</h2>
+                <p>{{region.climate}}</p>
+            </div>
+            <div class="portfolio-description">
+              <h2>Beliefs</h2>
+              <p class="justify">{{region.beliefs|safe|linebreaks}}</p>
+            </div>
+            <div class="portfolio-description">
+              <h2>Flavours</h2>
+              <p class="justify">{{region.flavours|safe|linebreaks}}</p>
+            </div>
+            <div class="portfolio-description">
+              <h2>Goods</h2>
+              <p class="justify">{{region.goods|safe|linebreaks}}</p>
+            </div>
+            <hr>
+            <div class="portfolio-description">
+              <h2>Culture</h2>
+              <p>{{region.culture}}</p>
+          </div>
+          </div>
+
+          <div class="col-lg-3">
+            <div class="portfolio-info">
+              <h3>Country Information</h3>
+              <hr>
+              <ul>
+                <li><strong>Name</strong> <span>{{region.name}}</span></li>
+                <li><strong>Area</strong> <span>{{region.area}}</span></li>
+                <li><strong>Population</strong> <span>{{region.population}}</span></li>
+                <li><strong>Density</strong> <a href="#">{{region.density}}</a></li>
+                <li><strong>Polulation</strong> <span>{{region.population}} Million</span></li>
+                <li><strong>Countries</strong> <span>{{region.countries}}</span></li>
+                <li><strong>GDP</strong> <span>{{region.gdp}}</span></li>
+                <hr>
+                <li><a href="{{region.wikiLink}}" class="btn-visit align-self-start" target="_blank">Read More</a></li>
+                <li><a href="#" class="btn-visit align-self-start">Gallery</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Gallery Single Section -->
+    {% endfor %}
+  </main><!-- End #main -->
+
+
+{% endblock content%}
