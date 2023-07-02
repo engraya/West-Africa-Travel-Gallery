@@ -11,9 +11,10 @@
       <div class="container position-relative">
         <div class="row d-flex justify-content-center">
           <div class="col-lg-6 text-center">
-            <h2>{{country.name}}</h2>
+            <h2>Map of {{country.name}}</h2>
             <p>{{country.description}}</p>
             <a class="cta-btn" href="{% url 'countries' %}">Back to Countries</a>
+            <a class="cta-btn" href="{% url 'about' country.id %}">About {{country.name}}</a>
 
           </div>
         </div>
