@@ -54,14 +54,17 @@
                 <h2>Climate</h2>
                 <p>{{region.climate}}</p>
             </div>
+            <hr>
             <div class="portfolio-description">
               <h2>Beliefs</h2>
               <p class="justify">{{region.beliefs|safe|linebreaks}}</p>
             </div>
+            <hr>
             <div class="portfolio-description">
               <h2>Flavours</h2>
               <p class="justify">{{region.flavours|safe|linebreaks}}</p>
             </div>
+            <hr>
             <div class="portfolio-description">
               <h2>Goods</h2>
               <p class="justify">{{region.goods|safe|linebreaks}}</p>
@@ -87,7 +90,7 @@
                 <li><strong>GDP</strong> <span>{{region.gdp}}</span></li>
                 <hr>
                 <li><a href="{{region.wikiLink}}" class="btn-visit align-self-start" target="_blank">Read More</a></li>
-                <li><a href="#" class="btn-visit align-self-start">Gallery</a></li>
+                <li><a href="{% url 'start' %}" class="btn-visit align-self-start">Gallery</a></li>
               </ul>
             </div>
           </div>

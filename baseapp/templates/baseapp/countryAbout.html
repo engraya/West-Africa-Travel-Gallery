@@ -30,7 +30,13 @@
             <div class="swiper-wrapper align-items-center">
 
               <div class="swiper-slide">
-                <img src="{% static 'assets/img/gallery/gallery-8.jpg' %}" alt="">
+                <img src="{{country.coverPhoto1.url}}" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="{{country.coverPhoto2.url}}" alt="">
+              </div>
+              <div class="swiper-slide">
+                <img src="{{country.coverPhoto3.url}}" alt="">
               </div>
             </div>
             <div class="swiper-pagination"></div>

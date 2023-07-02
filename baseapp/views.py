@@ -1,29 +1,48 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 
 def startPage(request):
+    # if request.method == 'POST':
+    #     images = request.FILES.getlist('images')
+    #     for image in images:
+    #         newImage = Gallery(image=image)
+    #         newImage.save()
+
     countries = Country.objects.all()
-    context = {'countries' : countries}
+    regions = Region.objects.all()
+    galleries = Gallery.objects.all()
+
+    #Pagination
+
+    context = {'countries' : countries, 'regions' : regions, 'galleries' : galleries}
     return render(request, 'baseapp/startPage.html', context)
 
 
+
 def aboutPage(request):
-    context = {}
+    countries = Country.objects.all()
+    regions = Region.objects.all()
+    context = {'countries' : countries, 'regions' : regions}
     return render(request, 'baseapp/aboutPage.html', context)
 
 
 def contactPage(request):
-    context = {}
+    countries = Country.objects.all()
+    regions = Region.objects.all()
+    context = {'countries' : countries, 'regions' : regions}
     return render(request, 'baseapp/contactPage.html', context)
 
 
 def galleryPage(request):
+    countries = Country.objects.all()
+    regions = Region.objects.all()
+    context = {'countries' : countries, 'regions' : regions}
 
-    context = {}
     return render(request, 'baseapp/galleryPage.html', context)
 
 

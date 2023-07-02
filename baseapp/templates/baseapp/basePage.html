@@ -12,8 +12,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
-  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="static/head/gettyimages-1219956411-612x612.jpg" rel="icon">
+  <link href="{% static 'static/head/gettyimages-1219956411-612x612.jpg' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
@@ -38,29 +38,24 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center  me-auto me-lg-0">
+      <a href="{% url 'start' %}" class="logo d-flex align-items-center  me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <i class="bi bi-camera"></i>
-        <h1>Travel Gallery</h1>
+        <img src="/static/head/gettyimages-1219956411-612x612.jpg" alt="">
+        <h1>West African Travel Gallery</h1>
       </a>
-
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="{% url 'start' %}" class="active">Home</a></li>
-          <li><a href="{% url 'about' %}">About</a></li>
           <li><a href="{% url 'region' %}">About</a></li>
-          <li class="dropdown"><a href="{% url 'gallery' %}"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li><a href="{% url 'gallery' %}"><span>Photo Gallery</span></a>
+          </li>
+          <li class="dropdown"><a href="{% url 'countries' %}"><span>Countries</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="gallery.html">Nature</a></li>
-              <li><a href="gallery.html">People</a></li>
-              <li><a href="gallery.html">Architecture</a></li>
-              <li><a href="gallery.html">Animals</a></li>
-              <li><a href="gallery.html">Sports</a></li>
-              <li><a href="gallery.html">Travel</a></li>
+              {% for country in countries %}
+              <li><a href="{% url 'about' country.id %}">{{country.name}}</a></li>
+              {% endfor %}
             </ul>
           </li>
-          <li><a href="{% url 'countries' %}">Countries</a></li>
           <li><a href="{% url 'contact' %}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
