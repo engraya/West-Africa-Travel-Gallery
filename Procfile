@@ -1,0 +1,1 @@
+web gunicorn west_africa_travel_gallery.wsgi:application --log-file -
